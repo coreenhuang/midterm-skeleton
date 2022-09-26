@@ -1,4 +1,5 @@
 const express = require('express');
+const quizHelper = require('../db/queries/quizzes');
 const router  = express.Router();
 
 router.get('/', (req, res) => {
@@ -15,7 +16,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  quizHelper.createQuiz(req.body);
   res.send('Send OK');
 });
 
