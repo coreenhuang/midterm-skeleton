@@ -1,40 +1,37 @@
 const express = require('express');
-//const quizHelper = require('../db/queries/quizzes');
 const router = express.Router();
+const userHelper = require('../db/queries/users');
 
-app.get("/login", (req, res) => {
-  let user = req.session.user_id;
-  const templateVars = {
-    user: user
-  };
-  if (!req.session.user_id) {
-    res.render("login", templateVars);
-  } else {
-    res.redirect('/urls');
-  }
+
+router.get("/", (req, res) => {
+
+  res.render("login");
 
 });
 
-app.post('/login', (req, res) => {
+router.post("/", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  userHelper.getUserbyEmail(email)
+  .then((user) => {
+    res.json(user);
+  })
+  const user = getUserbyEmail(email);
 
-  const testEmail = req.body.email;
-  const testPassword = req.body.password;
-  const user = getUserByEmail(testEmail);
-
-  if (!getUserByEmail(testEmail)) {
+  if(!userHelper.getUserbyEmail(email)){
     return res.status(401).send("User does not exist! Please <a href='/register'>register!</a>");
-    return;
   }
-  if (!bcrypt.compareSync(testPassword, user.password)) {
+  if (!bcrypt.compareSync(password, user.password)) {
     return res.status(401).send("Password doesn't match! Please <a href='/login'>try again!</a>");
   }
 
-  req.session.user_id = user.id;
-
-  res.redirect("/urls");
-
+  //   if (user is logged in){
+  //    res.redirect("/");
+  // }
+  //     else {
+  //   res.render("login");
+  // }
 
 });
 
 module.exports = router;
-
