@@ -18,31 +18,26 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       </button>
-      <a class="nav-item nav-link" href="/logout"><button type="submit" class="btn btn-primary">Logout</button></a>
     </nav>
   </header>
 </body>
 <main style="margin: 1em;">
-  <h2>Create your quiz!</h2>
-  <form action="/quizzes" method="POST">
+  <h2>View your specific quiz here! - Quiz Name</h2>
+  <form action="/:id" method="GET">
     <div class="form-group mb-2">
-      <label for="Quiz">Quiz Name</label>
-      <input class="form-control" type="text" name="title" style="width: 300px; margin: 1em" />
-      <label for="Public">Make public?</label>
-      <input class="form-control" type="checkbox" name="public" placeholder="yes or no" style="width: 300px; margin: 1em" />
-      <label for="Question">Question</label>
-      <input class="form-control" type="text" name="qstring" style="width: 300px; margin: 1em" />
+      <div>
+        <label for="Question">Question</label>
+      </div>
       <label for="Option1">Option 1</label>
-      <input class="form-control" type="text" name="ans1" style="width: 300px; margin: 1em" />
+      <input class="form-control" type="button" name="ans1" style="width: 300px; margin: 1em" />
       <label for="Option2">Option 2</label>
-      <input class="form-control" type="text" name="ans2" style="width: 300px; margin: 1em" />
+      <input class="form-control" type="button" name="ans2" style="width: 300px; margin: 1em" />
       <label for="Option3">Option 3</label>
-      <input class="form-control" type="text" name="ans3" style="width: 300px; margin: 1em" />
+      <input class="form-control" type="button" name="ans3" style="width: 300px; margin: 1em" />
       <label for="Option4">Option 4</label>
-      <input class="form-control" type="text" name="ans4" style="width: 300px; margin: 1em" />
-      <label for="Correct answer">Answer</label>
-      <input class="form-control" type="text" name="correct_answer" style="width: 300px; margin: 1em" />
-      <button type="submit" class="btn btn-primary">Save Quiz</button>
+      <input class="form-control" type="button" name="ans4" style="width: 300px; margin: 1em" />
+      <button type="submit" class="btn btn-primary">Edit Quiz - Viewable only by creator</button>
+      <button type="submit" class="btn btn-primary">Submit Quiz</button>
   </form>
 
 
