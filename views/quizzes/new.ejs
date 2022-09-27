@@ -1,21 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+  <title>QuizApp</title>
 </head>
+
 <body>
-  <form method="post" action="/quizzes">
-    <p>Quiz Title<input type="text" name="title"></p>
-      <p>Question<input type="text" name="qstring"></p>
-      <p>Answer 1<input type="text" name="ans1"></p>
-      <p>Answer 2<input type="text" name="ans2"></p>
-      <p>Answer 3<input type="text" name="ans3"></p>
-      <p>Answer 4<input type="text" name="ans4"></p>
-      <p>Correct Answer<input type="text" name="correct_answer"></p>
-    <button>Save Quiz</button>
-  </form>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+      <a class="navbar-brand" href="/">QuizApp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      </button>
+      <a class="nav-item nav-link" href="/logout"><button type="submit" class="btn btn-primary">Logout</button></a>
+    </nav>
+  </header>
 </body>
+<main style="margin: 1em;">
+  <h2>Create your quiz!</h2>
+  <form action="/quizzes" method="POST">
+    <div class="form-group mb-2">
+      <label for="Quiz">Quiz Name</label>
+      <input class="form-control" type="text" name="title" style="width: 300px; margin: 1em" />
+      <label for="Public">Public</label>
+      <input class="form-control" type="text" name="public" placeholder="yes or no" style="width: 300px; margin: 1em" />
+      <label for="Question">Question</label>
+      <input class="form-control" type="text" name="qstring" style="width: 300px; margin: 1em" />
+      <label for="Option1">Option 1</label>
+      <input class="form-control" type="text" name="ans1" style="width: 300px; margin: 1em" />
+      <label for="Option2">Option 2</label>
+      <input class="form-control" type="text" name="ans2" style="width: 300px; margin: 1em" />
+      <label for="Option3">Option 3</label>
+      <input class="form-control" type="text" name="ans3" style="width: 300px; margin: 1em" />
+      <label for="Option4">Option 4</label>
+      <input class="form-control" type="text" name="ans4" style="width: 300px; margin: 1em" />
+      <label for="Correct answer">Answer</label>
+      <input class="form-control" type="text" name="correct_answer" style="width: 300px; margin: 1em" />
+      <button type="submit" class="btn btn-primary">Save Quiz</button>
+  </form>
+
+
+</main>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
 </html>

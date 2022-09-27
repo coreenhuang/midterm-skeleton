@@ -1,10 +1,6 @@
 const express = require('express');
 const quizHelper = require('../db/queries/quizzes');
-const router  = express.Router();
-
-router.get('/', (req, res) => {
-  res.send('quizzes view goes here');
-});
+const router = express.Router();
 
 router.get('/new', (req, res) => {
   // res.send('new quizzes view goes here');
