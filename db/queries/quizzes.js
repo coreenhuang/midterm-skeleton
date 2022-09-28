@@ -13,13 +13,13 @@ const createQuiz = (quizParams) => {
   console.log(quizParams);
 };
 
-// const getPublicQuizzes= (quizParams) => {
-//   return db.query("select * from quizzes where public = 'on';")
-//   .then(data => {
-//     return data.rows
-//   })
-// console.log(quizParams)
-// }
+const getPublicQuizzes= (quizParams) => {
+  return db.query("select * from quizzes where public = 'on';")
+  .then(data => {
+    return data.rows
+  })
+console.log(quizParams)
+}
 
 const fetchQuiz = (quiz_id) => {
   console.log('fetchQuiz');
