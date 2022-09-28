@@ -13,24 +13,16 @@ router.post("/", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   userHelper.getUserbyEmail(email)
-  .then((user) => {
-    res.json(user);
-  })
-  const user = getUserbyEmail(email);
-
-  if(!userHelper.getUserbyEmail(email)){
-    return res.status(401).send("User does not exist! Please <a href='/register'>register!</a>");
-  }
-  if (!bcrypt.compareSync(password, user.password)) {
-    return res.status(401).send("Password doesn't match! Please <a href='/login'>try again!</a>");
-  }
-
-  //   if (user is logged in){
-  //    res.redirect("/");
-  // }
-  //     else {
-  //   res.render("login");
-  // }
+    .then((data) => {
+      if (!data) {
+        return res.status(401).send("User does not exist! Please <a href='/register'>register!</a>");
+      }
+      if (password !== data.password) {
+        return res.status(401).send("Password doesn't match! Please <a href='/login'>try again!</a>");
+      }
+      res.cookie("user_id", data.user_id)
+      res.redirect("/");
+    })
 
 });
 

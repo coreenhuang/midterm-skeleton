@@ -16,4 +16,5 @@ const getUserbyEmail = (email) => {
   console.log(userParams);
 };
 
+
 module.exports = { createUser, getUserbyEmail };

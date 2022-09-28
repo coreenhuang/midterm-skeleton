@@ -12,4 +12,12 @@ const createQuiz = (quizParams) => {
   console.log(quizParams);
 };
 
+const getQuizbyName = (quizParams) => {
+  return db.query("select")
+  .then(data => {
+    return data.rows
+  })
+console.log(quizParams)
+}
+
 module.exports = { createQuiz };
