@@ -21,9 +21,9 @@ console.log(quizParams)
 }
 
 const fetchQuiz = (quiz_id) => {
-  return db.query("SELECT * FROM quizzes")
+  return db.query("SELECT * FROM quizzes JOIN questions ON quizzes.id = questions.quiz_id WHERE quizzes.id = $1", [quiz_id])
   .then(data => {
-    return data.rows;
+    return data.rows[0];
   })
 };
 

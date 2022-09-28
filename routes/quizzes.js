@@ -23,8 +23,10 @@ router.get('/:id/modify', (req, res) => {
 // view page for a specific quiz
 router.get('/:id', (req, res) => {
   const quiz_id = req.params.id;
-  quizHelper.fetchQuiz(quiz_id);
-  res.render('quizzes/view_existing');
+  quizHelper.fetchQuiz(quiz_id)
+  .then(data => {
+    res.render('quizzes/view_existing', {data});
+  })
 });
 
 // view page for quiz results
