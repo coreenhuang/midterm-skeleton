@@ -20,4 +20,12 @@ const getPublicQuizzes= (quizParams) => {
 console.log(quizParams)
 }
 
-module.exports = { createQuiz };
+const fetchQuiz = (quiz_id) => {
+  return db.query("SELECT * FROM quizzes")
+  .then(data => {
+    return data.rows;
+  })
+};
+
+
+module.exports = { createQuiz, fetchQuiz };
