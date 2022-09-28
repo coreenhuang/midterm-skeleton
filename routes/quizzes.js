@@ -2,13 +2,13 @@ const express = require('express');
 const quizHelper = require('../db/queries/quizzes');
 const router = express.Router();
 
-// router.use((req, res, next) => {
-//   if (!req.cookies.user_id) {
-//     return res.redirect("/login");
-//   }
-//   next();
+router.use((req, res, next) => {
+  if (!req.cookies.user_id) {
+    return res.redirect("/login");
+  }
+  next();
 
-// })
+})
 
 // view page to create new quiz
 router.get('/new', (req, res) => {
