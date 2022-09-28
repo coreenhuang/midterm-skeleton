@@ -20,4 +20,9 @@ const getQuizbyName = (quizParams) => {
 console.log(quizParams)
 }
 
+const fetchQuiz = (quiz_id) => {
+  return db.query("SELECT ")
+};
+
+
 module.exports = { createQuiz };

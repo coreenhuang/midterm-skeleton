@@ -12,7 +12,6 @@ router.use((req, res, next) => {
 
 // view page to create new quiz
 router.get('/new', (req, res) => {
-  // res.send('new quizzes view goes here');
   res.render('quizzes/new');
 });
 
@@ -23,6 +22,7 @@ router.get('/:id/modify', (req, res) => {
 
 // view page for a specific quiz
 router.get('/:id', (req, res) => {
+  const quiz_id = req.params.id;
   res.render('quizzes/view_existing');
 });
 
