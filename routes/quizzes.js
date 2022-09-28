@@ -35,7 +35,7 @@ router.get('/generate random string', (req, res) => {
 // create a new quiz
 router.post('/', (req, res) => {
   quizHelper.createQuiz(req.body);
-  res.send('Send OK');
+  res.render('quizzes/view_existing');
 });
 
 module.exports = router;
