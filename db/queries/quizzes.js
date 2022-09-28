@@ -12,8 +12,8 @@ const createQuiz = (quizParams) => {
   console.log(quizParams);
 };
 
-const getQuizbyName = (quizParams) => {
-  return db.query("select")
+const getPublicQuizzes= (quizParams) => {
+  return db.query("select * from quizzes where public = 'on';")
   .then(data => {
     return data.rows
   })
