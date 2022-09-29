@@ -25,39 +25,43 @@
 </body>
 <main style="margin: 1em;">
   <h2>
-    <%= data.name %>
+    <%= data[0].name %>
   </h2>
   <h4>Share this quiz! URL here</h3>
-    <form action="/quizzes/<%= data.quiz_id %>/results" method="POST">
-      <div class="form-group mb-2">
-        <div>
-          <label for="Question">
-            <%= data.qstring %>
-          </label>
+    <form action="/quizzes/<%= data[0].quiz_id %>/results" method="POST">
+      <% for (let q of data){%>
+        <div class="form-group mb-2">
+          <div>
+            <label for="Question">
+              <%= q.qstring %>
+            </label>
+            <input type="radio" id="ans1" name="<%= q.id %>" value="<%= q.ans1 %>">
+            <label for="ans1">
+              <%= q.ans1 %>
+            </label><br>
+            <input type="radio" id="ans2" name="<%= q.id %>" value="<%= q.ans2 %>">
+
+            <label for="ans2">
+              <%= q.ans2 %>
+            </label><br>
+            <input type="radio" id="ans3" name="<%= q.id %>" value="<%= q.ans3 %>">
+
+            <label for="ans3">
+              <%= q.ans3 %>
+            </label><br>
+            <input type="radio" id="ans4" name="<%= q.id %>" value="<%= q.ans4 %>">
+
+            <label for="ans4">
+              <%= q.ans4 %>
+            </label><br>
+          </div>
         </div>
-        <input type="radio" id="ans1" name="<%= data.id %>" value="<%= data.ans1 %>">
-        <label for="ans1">
-          <%= data.ans1 %>
-        </label><br>
-        <input type="radio" id="ans2" name="<%= data.id %>" value="<%= data.ans2 %>">
-
-        <label for="ans2">
-          <%= data.ans2 %>
-        </label><br>
-        <input type="radio" id="ans3" name="<%= data.id %>" value="<%= data.ans3 %>">
-
-        <label for="ans3">
-          <%= data.ans3 %>
-        </label><br>
-        <input type="radio" id="ans4" name="<%= data.id %>" value="<%= data.ans4 %>">
-
-        <label for="ans4">
-          <%= data.ans4 %>
-        </label><br>
-        <button type="submit" class="btn btn-primary">Edit Quiz - Viewable only by creator</button>
-        <button type="submit" class="btn btn-primary">Submit Quiz</button>
-      </div>
+        <%}%>
+          <button type="submit" class="btn btn-primary">Submit Quiz</button>
     </form>
+
+
+
     <%= JSON.stringify(data) %>
 </main>
 <!-- Bootstrap JS -->

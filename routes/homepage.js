@@ -11,14 +11,15 @@ const router = express.Router();
 const db = require('../db/connection');
 
 router.post('/', (req, res) => {
+  console.log("inside homepage route");
   // res.render('quizzes/view_existing');
-  res.send("All good");
+  //res.send("All good");
   // db.query("select * from quizzes where public = 'on' order by id;")
   //   .then((response) => {
   //     const publicQuizzes = response.rows;
   //     console.log("publicQuizzes:", publicQuizzes);
-  //res.render('index', { publicQuizzes });
-  //})
+  // res.render('index', { publicQuizzes });
+  // })
 })
 
 module.exports = router;

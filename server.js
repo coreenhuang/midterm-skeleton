@@ -6,6 +6,8 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const db = require('./db/connection');
+
 
 
 
@@ -60,7 +62,12 @@ app.use('/register', registerRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  db.query("select * from quizzes where public = 'on' order by id;")
+    .then((response) => {
+      const publicQuizzes = response.rows;
+      console.log("publicQuizzes:", publicQuizzes);
+      res.render('index', { publicQuizzes });
+    })
 });
 
 
