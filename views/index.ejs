@@ -16,39 +16,16 @@
     <main style="margin: 1em;">
       <h3>Wanna get quizzy??? Click below!</h3>
       <% for(let quiz of publicQuizzes){ %>
-        <p>
-          <%=JSON.stringify(quiz)%>
-        </p>
         <div class="form-group mb-2" style="justify-content:space-around">
-          <form method="GET" action="/quizzes/<%=quiz.id %>"><button type="click" class="btn btn-primary"><%=quiz.name%></button></form>
+          <form method="GET" action="/quizzes/<%=quiz.id %>"><button type="click" class="btn btn-primary">
+              <%=quiz.name%>
+            </button></form>
         </div>
         <% }%>
-          <%=JSON.stringify(locals) %>
-            <!-- <div class="form-group mb-2">
-        <iframe src="https://gifer.com/embed/G0O8" width=480 height=366.000 frameBorder="0" allowFullScreen></iframe>
-      </div> -->
-            <div class="form-group mb-2">
-              <h4>Now create your own quiz and share it with your friends!</h4>
-              <a href="/quizzes/new"><button type="click" class="btn btn-primary">Create New Quiz</button></a>
-            </div>
-            <!-- <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Short URL ID</th>
-            <th scope="col">Long URL</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td>
-
-
-          <td>
-            <form method="POST" action="/"><button type="submit">Delete</button></form>
-
-        </tbody>
-      </table> -->
+          <div class="form-group mb-2">
+            <h4>Now create your own quiz and share it with your friends!</h4>
+            <a href="/quizzes/new"><button type="click" class="btn btn-primary">Create New Quiz</button></a>
+          </div>
     </main>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
