@@ -26,6 +26,7 @@ router.get('/:id', (req, res) => {
   })
 });
 
+// I forget what this router post does
 router.post('/:id/results', (req, res) => {
   quizHelper.newAttempt(req.params.id, req.body)
   .then(data => {
@@ -35,14 +36,14 @@ router.post('/:id/results', (req, res) => {
   console.log(req.body);
 });
 
+// view page for quiz results
+router.get('/:id/results', (req, res) => {
+  res.render('quizzes/results');
+});
+
 // view page for a specific quiz
 router.get('/:id/modify', (req, res) => {
   res.render('quizzes/modify');
-});
-
-// view page for quiz results
-router.get('/generate random string', (req, res) => {
-  res.render('quizzes/results');
 });
 
 // create a new quiz
