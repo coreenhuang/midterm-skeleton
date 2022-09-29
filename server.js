@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 
 
 
+
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -35,7 +36,7 @@ app.use(cookieParser());
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
+const homepageRoutes = require('./routes/homepage');
 const quizzesRoutes = require('./routes/quizzes');
 const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/register');
@@ -46,7 +47,7 @@ const registerRoutes = require('./routes/register');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use('/', homepageRoutes);
 app.use('/quizzes', quizzesRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
@@ -61,6 +62,8 @@ app.use('/register', registerRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+
 
 // Logout Route
 app.get("/logout", (req, res) => {

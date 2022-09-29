@@ -18,33 +18,47 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       </button>
-      <a class="nav-item nav-link" href="/logout"><button type="submit" class="btn btn-primary">Logout (if logged in)</button></a>
+      <a class="nav-item nav-link" href="/logout"><button type="submit" class="btn btn-primary">Logout (if logged
+          in)</button></a>
     </nav>
   </header>
 </body>
 <main style="margin: 1em;">
-  <h2><%= data.name %></h2>
+  <h2>
+    <%= data.name %>
+  </h2>
   <h4>Share this quiz! URL here</h3>
-  <form action="/quizzes/<%= data.quiz_id %>/results" method="POST">
-    <div class="form-group mb-2">
-      <div>
-        <label for="Question"><%= data.qstring %></label>
+    <form action="/quizzes/<%= data.quiz_id %>/results" method="POST">
+      <div class="form-group mb-2">
+        <div>
+          <label for="Question">
+            <%= data.qstring %>
+          </label>
+        </div>
+        <input type="radio" id="ans1" name="<%= data.id %>" value="<%= data.ans1 %>">
+        <label for="ans1">
+          <%= data.ans1 %>
+        </label><br>
+        <input type="radio" id="ans2" name="<%= data.id %>" value="<%= data.ans2 %>">
+
+        <label for="ans2">
+          <%= data.ans2 %>
+        </label><br>
+        <input type="radio" id="ans3" name="<%= data.id %>" value="<%= data.ans3 %>">
+
+        <label for="ans3">
+          <%= data.ans3 %>
+        </label><br>
+        <input type="radio" id="ans4" name="<%= data.id %>" value="<%= data.ans4 %>">
+
+        <label for="ans4">
+          <%= data.ans4 %>
+        </label><br>
+        <button type="submit" class="btn btn-primary">Edit Quiz - Viewable only by creator</button>
+        <button type="submit" class="btn btn-primary">Submit Quiz</button>
       </div>
-      <input type="radio" id="ans1" name="<%= data.id %>" value="<%= data.ans1 %>">
-      <label for="ans1"><%= data.ans1 %></label><br>
-     <input type="radio" id="ans2" name="<%= data.id %>" value="<%= data.ans2 %>">
-
-      <label for="ans2"><%= data.ans2 %></label><br>
-     <input type="radio" id="ans3" name="<%= data.id %>" value="<%= data.ans3 %>">
-
-      <label for="ans3"><%= data.ans3 %></label><br>
-     <input type="radio" id="ans4" name="<%= data.id %>" value="<%= data.ans4 %>">
-
-      <label for="ans4"><%= data.ans4 %></label><br>
-      <button type="submit" class="btn btn-primary">Edit Quiz - Viewable only by creator</button>
-      <button type="submit" class="btn btn-primary">Submit Quiz</button>
-  </form>
-  <%= JSON.stringify(data) %>
+    </form>
+    <%= JSON.stringify(data) %>
 </main>
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

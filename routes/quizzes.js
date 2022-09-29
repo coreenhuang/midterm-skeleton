@@ -21,17 +21,17 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   const quiz_id = req.params.id;
   quizHelper.fetchQuiz(quiz_id)
-  .then(data => {
-    res.render('quizzes/view_existing', {data});
-  })
+    .then(data => {
+      res.render('quizzes/view_existing', { data });
+    })
 });
 
 router.post('/:id/results', (req, res) => {
   quizHelper.newAttempt(req.params.id, req.body)
-  .then(data => {
-    res.send('Good');
+    .then(data => {
+      res.send('Good');
 
-  })
+    })
   console.log(req.body);
 });
 
@@ -47,8 +47,13 @@ router.get('/generate random string', (req, res) => {
 
 // create a new quiz
 router.post('/', (req, res) => {
-  quizHelper.createQuiz(req.body);
-  res.render('quizzes/view_existing');
+  quizHelper.createQuiz(req.body)
+    .then(data => {
+      res.render('quizzes/view_existing', { data });
+      //return data;
+
+    })
+
 });
 
 module.exports = router;

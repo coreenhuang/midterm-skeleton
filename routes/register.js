@@ -18,10 +18,11 @@ router.post("/", (req, res) => {
       if (data) {
         return res.status(401).send("User already exist! Please <a href='/login'>login!</a> !");
       }
-      userHelper.createUser(req.body);
-     //res.cookie("user_id", data.user_id);
-      res.redirect("/");
-
+      userHelper.createUser(req.body)
+        .then(data => {
+          res.cookie("user_id", data.user_id);
+          res.redirect("/");
+        })
     });
 });
 

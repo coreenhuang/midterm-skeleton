@@ -1,5 +1,5 @@
 
-INSERT INTO quizzes (id, name, public) VALUES (1,'Colour Quiz', 'yes') returning id;
+INSERT INTO quizzes (id, name, public) VALUES (1,'Colour Quiz', 'on') returning id;
 
 INSERT INTO questions (qstring, ans1, ans2, ans3, ans4, correct_answer, quiz_id) VALUES ('Fave Colour?', 'Red', 'Pink', 'Blue', 'Green', 'Pink', 1);
 

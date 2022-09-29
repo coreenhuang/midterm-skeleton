@@ -3,7 +3,8 @@ const db = require('../connection');
 const createUser = (userParams) => {
   return db.query("INSERT INTO users (email, password) VALUES ($1, $2) returning *", [userParams.email, userParams.password])
     .then(data => {
-      return data.rows;
+      console.log("create user data.rows:",data.rows[0] );
+      return data.rows[0];
     })
   console.log(userParams);
 }

@@ -4,9 +4,15 @@ const userHelper = require('../db/queries/users');
 
 
 router.get("/", (req, res) => {
-
-  res.render("login");
-
+  let user = res.cookie.user_id;
+  const templateVars = {
+    user: user
+  };
+  if (!req.cookies.user_id) {
+    res.render("login", templateVars);
+    return;
+  }
+  res.redirect('/');
 });
 
 router.post("/", (req, res) => {
@@ -25,5 +31,7 @@ router.post("/", (req, res) => {
     })
 
 });
+
+
 
 module.exports = router;
