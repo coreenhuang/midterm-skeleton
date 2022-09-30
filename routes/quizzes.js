@@ -2,8 +2,6 @@ const express = require('express');
 const quizHelper = require('../db/queries/quizzes');
 const router = express.Router();
 
-
-
 // router.use((req, res, next) => {
 //   if (!req.cookies.user_id) {
 //     return res.redirect("/login");
@@ -26,19 +24,23 @@ router.get('/:id', (req, res) => {
     })
 });
 
-// I forget what this router post does
+// posts results after quiz submission
 router.post('/:id/results', (req, res) => {
+  console.log('hello', req.params.id, req.body);
+  // hello 3 { '5': 'samsung', '6': 'world', '7': 'two' }
+  console.log('this is new attempt', quizHelper.newAttempt(req.params.id, req.body))
   quizHelper.newAttempt(req.params.id, req.body)
     .then(data => {
-      res.send('Good');
-
+      res.redirect(`/quizzes/${req.params.id}/results/${data}`)
     })
   console.log(req.body);
 });
 
-// view page for quiz results
-router.get('/:id/results', (req, res) => {
-  res.render('quizzes/results');
+router.get('/:id/results/:attempt_id', (req,res) => {
+  quizHelper.fetchScore(req.params.id, req.params.attempt_id)
+  .then((data) => {
+    res.render('quizzes/results', data);
+  })
 });
 
 // view page for a specific quiz
