@@ -44,6 +44,7 @@ const newAttempt = (quiz_id, answeredQuestions) => {
       const answers = Object.entries(answeredQuestions);
       for (let a of answers) {
         const p = db.query("INSERT INTO answers (question_id, given_answer, attempt_id) VALUES ($1, $2, $3) RETURNING id", [a[0], a[1], data.rows[0].id])
+        promises.push(p);
       }
       return Promise.all(promises)
         .then((result) => {
