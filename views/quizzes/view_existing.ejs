@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+  <link rel="stylesheet" href="/styles/layout.css" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
@@ -12,22 +12,12 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-success">
-      <a class="navbar-brand" href="/">QuizApp</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      </button>
-      <a class="nav-item nav-link" href="/logout"><button type="submit" class="btn btn-primary">Logout (if logged
-          in)</button></a>
-    </nav>
-  </header>
+  <%- include('../partials/_header') %>
 </body>
 <main style="margin: 1em;">
   <h2>
     <%= data[0].name %>
   </h2>
-  <h4>Share this quiz! URL here</h3>
     <form action="/quizzes/<%= data[0].quiz_id %>/results" method="POST">
       <% for (let q of data){%>
         <div class="form-group mb-2">
@@ -35,6 +25,7 @@
             <label for="Question">
               <%= q.qstring %>
             </label>
+            <br/>
             <input type="radio" id="ans1" name="<%= q.id %>" value="<%= q.ans1 %>">
             <label for="ans1">
               <%= q.ans1 %>

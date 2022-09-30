@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+  <link rel="stylesheet" href="/styles/layout.css" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
@@ -13,20 +13,29 @@
 
 <body>
   <%- include('partials/_header') %>
-    <main style="margin: 1em;">
-      <h3>Wanna get quizzy??? Click below!</h3>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
       <% for(let quiz of publicQuizzes){ %>
-        <div class="form-group mb-2" style="justify-content:space-around">
-          <form method="GET" action="/quizzes/<%=quiz.id %>"><button type="click" class="btn btn-primary">
-              <%=quiz.name%>
-            </button></form>
-        </div>
-        <% }%>
-          <div class="form-group mb-2">
-            <h4>Now create your own quiz and share it with your friends!</h4>
-            <a href="/quizzes/new"><button type="click" class="btn btn-primary">Create New Quiz</button></a>
-          </div>
-    </main>
+        <tr>
+          <td><%=quiz.name%></td>
+          <td>
+            <form method="GET" action="/quizzes/<%=quiz.id %>"><button type="click" class="btn btn-info">
+            Take quiz
+          </button></form>
+          </td>
+        </tr>
+      <% }%>
+    </tbody>
+  </table>
+  <div class="form-group mb-2">
+
+  </div>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

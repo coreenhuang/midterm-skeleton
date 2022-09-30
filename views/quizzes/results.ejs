@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+  <link rel="stylesheet" href="/styles/layout.css" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
@@ -12,20 +12,10 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-success">
-      <a class="navbar-brand" href="/">QuizApp</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      </button>
-      <a class="nav-item nav-link" href="/logout"><button type="submit" class="btn btn-primary">Logout (if logged
-          in)</button></a>
-    </nav>
-  </header>
+  <%- include('../partials/_header') %>
 </body>
 <main style="margin: 1em;">
-  <h2>View your results here! - Quiz Name</h2>
-  <h4>Share results: URL here</h4>
+  <h2>View your results here!</h2>
   <h3> <%= score %> / <%= total %> </h3>
 
 </main>
